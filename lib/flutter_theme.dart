@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extensions/flutter_extensions.dart';
 
-class Theme {
-  Theme({
+class FlutterTheme {
+  FlutterTheme({
     int? primaryColor,
     int? secondaryColor,
   })  : _primaryColor =
