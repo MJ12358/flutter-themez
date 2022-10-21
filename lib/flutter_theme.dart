@@ -17,6 +17,9 @@ class FlutterTheme {
   Color get primaryColor => _primaryColor;
   Color get secondaryColor => _secondaryColor;
 
+  ///
+  /// Use this to get a [light] theme
+  ///
   ThemeData light() {
     return ThemeData.light().copyWith(
       appBarTheme: _appBarTheme(),
@@ -35,6 +38,9 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// Use this to get a [dark] theme
+  ///
   ThemeData dark() {
     return ThemeData.dark().copyWith(
       // appBarTheme: _appBarTheme(), // works better with defaults
@@ -51,6 +57,9 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// AppBar theme
+  ///
   AppBarTheme _appBarTheme() {
     return const AppBarTheme().copyWith(
       iconTheme: const IconThemeData().copyWith(
@@ -60,6 +69,9 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// Divider theme
+  ///
   DividerThemeData _dividerTheme() {
     return const DividerThemeData().copyWith(
       space: 2.0,
@@ -67,6 +79,9 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// Elevated button theme
+  ///
   ElevatedButtonThemeData _elevatedButtonTheme() {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -75,17 +90,24 @@ class FlutterTheme {
           color: _primaryColor.blackOrWhite, //! not working
           fontWeight: FontWeight.bold,
           letterSpacing: 1.25,
+          fontFamily: _fontFamily,
         ),
       ),
     );
   }
 
+  ///
+  /// Icon theme
+  ///
   IconThemeData _iconTheme() {
     return const IconThemeData().copyWith(
       color: _primaryColor.blackOrWhite,
     );
   }
 
+  ///
+  /// List tile theme
+  ///
   ListTileThemeData _listTileTheme() {
     return const ListTileThemeData().copyWith(
       selectedColor: _secondaryColor.blackOrWhite,
@@ -93,6 +115,9 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// Switch theme
+  ///
   SwitchThemeData _switchTheme() {
     return const SwitchThemeData().copyWith(
       trackColor: MaterialStateProperty.resolveWith(
@@ -114,12 +139,18 @@ class FlutterTheme {
     );
   }
 
+  ///
+  /// Light text theme
+  ///
   TextTheme _lightTextTheme() {
     return ThemeData.light().textTheme.apply(
           fontFamily: _fontFamily,
         );
   }
 
+  ///
+  /// Dark text theme
+  ///
   TextTheme _darkTextTheme() {
     return ThemeData.dark().textTheme.apply(
           fontFamily: _fontFamily,
