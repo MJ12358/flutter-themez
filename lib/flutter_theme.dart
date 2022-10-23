@@ -9,6 +9,7 @@ class FlutterTheme {
   factory FlutterTheme({
     int? primaryColor,
     int? secondaryColor,
+    String? fontFamily,
   }) {
     if (primaryColor != null) {
       _singleton._primaryColor = Color(primaryColor);
@@ -16,15 +17,19 @@ class FlutterTheme {
     if (secondaryColor != null) {
       _singleton._secondaryColor = Color(secondaryColor);
     }
+    if (fontFamily != null) {
+      _singleton._fontFamily = fontFamily;
+    }
     return _singleton;
   }
 
   Color _primaryColor = Colors.blue;
   Color _secondaryColor = Colors.orange;
-  final String _fontFamily = 'Primary';
+  String _fontFamily = 'Primary';
 
   Color get primaryColor => _primaryColor;
   Color get secondaryColor => _secondaryColor;
+  String get fontFamily => _fontFamily;
 
   ///
   /// Use this to get a [light] theme
