@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_extensions/flutter_extensions.dart';
 
 class FlutterTheme {
-  FlutterTheme({
+  static final FlutterTheme _singleton = FlutterTheme._internal();
+
+  FlutterTheme._internal();
+
+  factory FlutterTheme({
     int? primaryColor,
     int? secondaryColor,
-  })  : _primaryColor =
-            primaryColor != null ? Color(primaryColor) : Colors.blue,
-        _secondaryColor =
-            secondaryColor != null ? Color(secondaryColor) : Colors.orange;
+  }) {
+    if (primaryColor != null) {
+      _singleton._primaryColor = Color(primaryColor);
+    }
+    if (secondaryColor != null) {
+      _singleton._secondaryColor = Color(secondaryColor);
+    }
+    return _singleton;
+  }
 
-  final Color _primaryColor;
-  final Color _secondaryColor;
+  Color _primaryColor = Colors.blue;
+  Color _secondaryColor = Colors.orange;
   final String _fontFamily = 'Primary';
 
   Color get primaryColor => _primaryColor;
