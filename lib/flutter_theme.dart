@@ -37,6 +37,7 @@ class FlutterTheme {
   ThemeData light() {
     return ThemeData.light().copyWith(
       appBarTheme: _appBarTheme(),
+      checkboxTheme: _checkboxTheme(),
       colorScheme: const ColorScheme.light().copyWith(
         primary: _primaryColor,
         primaryContainer: _primaryColor,
@@ -58,6 +59,7 @@ class FlutterTheme {
   ThemeData dark() {
     return ThemeData.dark().copyWith(
       // appBarTheme: _appBarTheme(), // works better with defaults
+      checkboxTheme: _checkboxTheme(),
       colorScheme: const ColorScheme.dark().copyWith(
         primary: _primaryColor,
         secondary: _secondaryColor,
@@ -80,6 +82,19 @@ class FlutterTheme {
         color: _primaryColor.blackOrWhite,
       ),
       foregroundColor: _primaryColor.blackOrWhite,
+    );
+  }
+
+  ///
+  /// Checkbox theme
+  ///
+  CheckboxThemeData _checkboxTheme() {
+    return const CheckboxThemeData().copyWith(
+      fillColor: MaterialStateProperty.resolveWith(
+        (Set<MaterialState> states) {
+          return _primaryColor;
+        },
+      ),
     );
   }
 
