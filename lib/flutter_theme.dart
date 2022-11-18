@@ -37,7 +37,9 @@ class FlutterTheme {
   ThemeData light() {
     return ThemeData.light().copyWith(
       appBarTheme: _appBarTheme(),
+      bottomAppBarTheme: _bottomAppBarTheme(),
       checkboxTheme: _checkboxTheme(),
+      chipTheme: _chipTheme(),
       colorScheme: const ColorScheme.light().copyWith(
         primary: _primaryColor,
         primaryContainer: _primaryColor,
@@ -48,6 +50,7 @@ class FlutterTheme {
       elevatedButtonTheme: _elevatedButtonTheme(),
       iconTheme: _iconTheme(),
       listTileTheme: _listTileTheme(),
+      radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
       textTheme: _lightTextTheme(),
     );
@@ -59,7 +62,9 @@ class FlutterTheme {
   ThemeData dark() {
     return ThemeData.dark().copyWith(
       // appBarTheme: _appBarTheme(), // works better with defaults
+      bottomAppBarTheme: _bottomAppBarTheme(),
       checkboxTheme: _checkboxTheme(),
+      chipTheme: _chipTheme(),
       colorScheme: const ColorScheme.dark().copyWith(
         primary: _primaryColor,
         secondary: _secondaryColor,
@@ -68,6 +73,7 @@ class FlutterTheme {
       dividerTheme: _dividerTheme(),
       elevatedButtonTheme: _elevatedButtonTheme(),
       // listTileTheme: _listTileTheme(), // works better with defaults
+      radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
       textTheme: _darkTextTheme(),
     );
@@ -86,14 +92,46 @@ class FlutterTheme {
   }
 
   ///
+  /// Bottom appBar theme
+  ///
+  BottomAppBarTheme _bottomAppBarTheme() {
+    return const BottomAppBarTheme().copyWith(
+      color: _secondaryColor,
+    );
+  }
+
+  ///
   /// Checkbox theme
   ///
   CheckboxThemeData _checkboxTheme() {
     return const CheckboxThemeData().copyWith(
+      checkColor: MaterialStateProperty.resolveWith(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return _primaryColor.blackOrWhite;
+          }
+          return null;
+        },
+      ),
       fillColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
-          return _primaryColor;
+          if (states.contains(MaterialState.selected)) {
+            return _primaryColor;
+          }
+          return null;
         },
+      ),
+    );
+  }
+
+  ///
+  /// Chip theme
+  ///
+  ChipThemeData _chipTheme() {
+    return const ChipThemeData().copyWith(
+      backgroundColor: _primaryColor,
+      labelStyle: const TextStyle().copyWith(
+        color: _primaryColor.blackOrWhite,
       ),
     );
   }
@@ -141,6 +179,22 @@ class FlutterTheme {
     return const ListTileThemeData().copyWith(
       selectedColor: _secondaryColor.blackOrWhite,
       selectedTileColor: _secondaryColor,
+    );
+  }
+
+  ///
+  /// Radio theme
+  ///
+  RadioThemeData _radioTheme() {
+    return const RadioThemeData().copyWith(
+      fillColor: MaterialStateProperty.resolveWith(
+        (Set<MaterialState> states) {
+          if (states.contains(MaterialState.selected)) {
+            return _primaryColor;
+          }
+          return null;
+        },
+      ),
     );
   }
 
