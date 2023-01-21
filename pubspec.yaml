@@ -1,20 +1,16 @@
 name: flutter_theme
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
-
-# Prevent accidental publishing to pub.dev.
-publish_to: 'none'
+description: A simple wrapper for Flutter's ThemeData. Including "light" and "dark".
+version: 1.0.0
+repository: https://github.com/mj12358/flutter-theme
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_extensions:
-    git: https://github.com/mj12358/flutter-extensions
+  flutter_extensionz: ^1.0.0
 
 dev_dependencies:
   flutter_test:

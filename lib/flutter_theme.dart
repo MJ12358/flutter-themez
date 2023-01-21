@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_extensions/flutter_extensions.dart';
+import 'package:flutter_extensionz/flutter_extensionz.dart';
 
 class FlutterTheme {
   static final FlutterTheme _singleton = FlutterTheme._internal();
@@ -50,8 +50,12 @@ class FlutterTheme {
       elevatedButtonTheme: _elevatedButtonTheme(),
       iconTheme: _iconTheme(),
       listTileTheme: _listTileTheme(),
+      primaryColorLight: _primaryColor.lighten(),
+      primaryColorDark: _primaryColor.darken(),
+      // primarySwatch:
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
+      tabBarTheme: _tabBarTheme(),
       textTheme: _lightTextTheme(),
     );
   }
@@ -75,6 +79,7 @@ class FlutterTheme {
       // listTileTheme: _listTileTheme(), // works better with defaults
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
+      tabBarTheme: _tabBarTheme(),
       textTheme: _darkTextTheme(),
     );
   }
@@ -220,6 +225,13 @@ class FlutterTheme {
         },
       ),
     );
+  }
+
+  ///
+  /// Tab bar theme
+  ///
+  TabBarTheme _tabBarTheme() {
+    return TabBarTheme();
   }
 
   ///
