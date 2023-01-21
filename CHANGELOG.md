@@ -1,4 +1,4 @@
-# Flutter Theme
+# Flutter Themez
 
 ## 1.0.0
 

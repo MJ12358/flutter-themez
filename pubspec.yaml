@@ -1,4 +1,4 @@
-name: flutter_theme
+name: flutter_themez
 description: A simple wrapper for Flutter's ThemeData. Including "light" and "dark".
 version: 1.0.0
 repository: https://github.com/mj12358/flutter-theme

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_extensionz/flutter_extensionz.dart';
 
-class FlutterTheme {
-  static final FlutterTheme _singleton = FlutterTheme._internal();
+class FlutterThemez {
+  static final FlutterThemez _singleton = FlutterThemez._internal();
 
-  FlutterTheme._internal();
+  FlutterThemez._internal();
 
-  factory FlutterTheme({
+  factory FlutterThemez({
     int? primaryColor,
     int? secondaryColor,
     String? fontFamily,

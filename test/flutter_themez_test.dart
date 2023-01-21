@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_theme/flutter_theme.dart';
+import 'package:flutter_themez/flutter_themez/flutter_themez.dart';
 
 void main() {
   test('constructor', () {
     int primaryColor = 0xFF000000;
     int secondaryColor = 0xFF999999;
 
-    FlutterTheme theme = FlutterTheme(
+    FlutterThemez theme = FlutterThemez(
       primaryColor: primaryColor,
       secondaryColor: secondaryColor,
     );
