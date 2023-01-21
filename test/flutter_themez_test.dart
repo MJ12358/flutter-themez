@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_themez/flutter_themez/flutter_themez.dart';
+import 'package:flutter_themez/flutter_themez.dart';
 
 void main() {
   test('constructor', () {
