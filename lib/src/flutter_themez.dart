@@ -4,8 +4,6 @@ import 'package:flutter_extensionz/flutter_extensionz.dart';
 class FlutterThemez {
   static final FlutterThemez _singleton = FlutterThemez._internal();
 
-  FlutterThemez._internal();
-
   factory FlutterThemez({
     int? primaryColor,
     int? secondaryColor,
@@ -22,6 +20,8 @@ class FlutterThemez {
     }
     return _singleton;
   }
+
+  FlutterThemez._internal();
 
   Color _primaryColor = Colors.blue;
   Color _secondaryColor = Colors.orange;
@@ -231,9 +231,10 @@ class FlutterThemez {
   ///
   TabBarTheme _lightTabBarTheme() {
     return TabBarTheme(
+      labelColor: _primaryColor.blackOrWhite,
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
-          color: light().colorScheme.onPrimary,
+          color: _primaryColor.blackOrWhite,
           width: 2.0,
         ),
       ),

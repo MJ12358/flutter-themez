@@ -5,7 +5,7 @@
 Add this to your `pubspec.yaml` under `dependences`
 
 ```yaml
-flutter_themez: ^1.0.3
+flutter_themez: ^1.0.4
 ```
 
 ## Usage
