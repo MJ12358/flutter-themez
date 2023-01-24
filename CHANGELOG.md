@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.0.3
+
+* Add TabBarTheme.
+
 ## 1.0.2
 
 * Update readme.

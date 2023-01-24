@@ -54,7 +54,7 @@ class FlutterThemez {
       primaryColorDark: _primaryColor.darken(),
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
-      tabBarTheme: _tabBarTheme(),
+      tabBarTheme: _lightTabBarTheme(),
       textTheme: _lightTextTheme(),
     );
   }
@@ -78,7 +78,7 @@ class FlutterThemez {
       // listTileTheme: _listTileTheme(), // works better with defaults
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
-      tabBarTheme: _tabBarTheme(),
+      tabBarTheme: _darkTabBarTheme(),
       textTheme: _darkTextTheme(),
     );
   }
@@ -227,10 +227,31 @@ class FlutterThemez {
   }
 
   ///
-  /// Tab bar theme
+  /// Light tab bar theme
   ///
-  TabBarTheme _tabBarTheme() {
-    return const TabBarTheme();
+  TabBarTheme _lightTabBarTheme() {
+    return TabBarTheme(
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(
+          color: light().colorScheme.onPrimary,
+          width: 2.0,
+        ),
+      ),
+    );
+  }
+
+  ///
+  /// Dark tab bar theme
+  ///
+  TabBarTheme _darkTabBarTheme() {
+    return TabBarTheme(
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(
+          color: _primaryColor,
+          width: 2.0,
+        ),
+      ),
+    );
   }
 
   ///
