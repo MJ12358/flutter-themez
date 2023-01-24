@@ -52,7 +52,6 @@ class FlutterThemez {
       listTileTheme: _listTileTheme(),
       primaryColorLight: _primaryColor.lighten(),
       primaryColorDark: _primaryColor.darken(),
-      // primarySwatch:
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
       tabBarTheme: _tabBarTheme(),
@@ -231,7 +230,7 @@ class FlutterThemez {
   /// Tab bar theme
   ///
   TabBarTheme _tabBarTheme() {
-    return TabBarTheme();
+    return const TabBarTheme();
   }
 
   ///

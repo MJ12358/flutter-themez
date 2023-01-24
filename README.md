@@ -5,23 +5,23 @@
 Add this to your `pubspec.yaml` under `dependences`
 
 ```yaml
-flutter_theme:
-  git: https://github.com/mj12358/flutter-theme
+flutter_themez: ^1.0.2
 ```
 
 ## Usage
+
 ```dart
-import 'package:flutter_theme/flutter_theme.dart';
+import 'package:flutter_themez/flutter_themez.dart';
 ```
 
 The `light()` and `dark()` methods provide a `ThemeData`
 
 ```dart
-ThemeData td = FlutterTheme().light();
+ThemeData td = FlutterThemez().light();
 ```
 
 You can also provide your own primary and/or secondary colors.
 
 ```dart
-ThemeData td = FlutterTheme(primaryColor: 0xFFEF4136, secondaryColor: 0xFFFBB040).dark();
+ThemeData td = FlutterThemez(primaryColor: 0xFFEF4136, secondaryColor: 0xFFFBB040).dark();
 ```
