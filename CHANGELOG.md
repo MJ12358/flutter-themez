@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.0.6
+
+- Bump versions.
+
 ## 1.0.5
 
 - Fix some lints.
