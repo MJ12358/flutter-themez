@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_extensionz/flutter_extensionz.dart';
+part of '../flutter_themez.dart';
 
 class FlutterThemez {
   static final FlutterThemez _singleton = FlutterThemez._internal();
