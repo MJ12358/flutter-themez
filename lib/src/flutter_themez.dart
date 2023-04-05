@@ -1,4 +1,4 @@
-part of '../flutter_themez.dart';
+part of flutter_themez;
 
 class FlutterThemez {
   static final FlutterThemez _singleton = FlutterThemez._internal();

@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.0.7
+
+- Bump dependency versions.
+
 ## 1.0.6
 
 - Bump versions.
