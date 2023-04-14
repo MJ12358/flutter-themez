@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.0.8
+
+- Modify elevated button theme.
+
 ## 1.0.7
 
 - Bump dependency versions.

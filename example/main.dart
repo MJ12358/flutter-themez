@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_themez/flutter_themez.dart';
 
-FlutterThemez theme = FlutterThemez(
-  primaryColor: 0xFF000000,
-  secondaryColor: 0xFF999999,
-);
+void main() {
+  runApp(const App());
+}
 
-ThemeData themeData = theme.dark();
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final FlutterThemez theme = FlutterThemez(
+      primaryColor: 0xFF000000,
+      secondaryColor: 0xFF999999,
+    );
+
+    return MaterialApp(
+      home: const Scaffold(
+        body: Center(
+          child: Text('Flutter Themez!'),
+        ),
+      ),
+      darkTheme: theme.dark(),
+      theme: theme.light(),
+    );
+  }
+}
