@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.2.0
+
+- Add NavigationRailTheme.
+
 ## 1.1.0
 
 - Update dependency constraints.

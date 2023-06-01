@@ -1,8 +1,10 @@
 part of flutter_themez;
 
+/// {@template flutter_themez}
+/// The entry point for [FlutterThemez].
+/// {@endtemplate}
 class FlutterThemez {
-  static final FlutterThemez _singleton = FlutterThemez._internal();
-
+  /// {@macro flutter_themez}
   factory FlutterThemez({
     int? primaryColor,
     int? secondaryColor,
@@ -20,17 +22,25 @@ class FlutterThemez {
     return _singleton;
   }
 
-  FlutterThemez._internal();
+  FlutterThemez._();
+  static final FlutterThemez _singleton = FlutterThemez._();
 
   Color _primaryColor = Colors.blue;
   Color _secondaryColor = Colors.orange;
   String _fontFamily = 'Primary';
 
+  /// The primary color of this theme.
   Color get primaryColor => _primaryColor;
+
+  /// The secondary color of this theme.
   Color get secondaryColor => _secondaryColor;
+
+  /// The font family of this theme.
   String get fontFamily => _fontFamily;
 
-  /// Use this to get a [light] theme.
+  /// {@macro flutter_themez}
+  ///
+  /// Use this to get a [ThemeData.light] theme.
   ThemeData light() {
     return ThemeData.light().copyWith(
       appBarTheme: _appBarTheme(),
@@ -47,6 +57,7 @@ class FlutterThemez {
       elevatedButtonTheme: _elevatedButtonTheme(),
       iconTheme: _iconTheme(),
       listTileTheme: _listTileTheme(),
+      navigationRailTheme: _lightNavigationRailTheme(),
       primaryColorLight: _primaryColor.lighten(),
       primaryColorDark: _primaryColor.darken(),
       radioTheme: _radioTheme(),
@@ -56,10 +67,11 @@ class FlutterThemez {
     );
   }
 
-  /// Use this to get a [dark] theme.
+  /// {@macro flutter_themez}
+  ///
+  /// Use this to get a [ThemeData.dark] theme.
   ThemeData dark() {
     return ThemeData.dark().copyWith(
-      // appBarTheme: _appBarTheme(), // works better with defaults
       bottomAppBarTheme: _bottomAppBarTheme(),
       checkboxTheme: _checkboxTheme(),
       chipTheme: _chipTheme(),
@@ -70,7 +82,7 @@ class FlutterThemez {
       ),
       dividerTheme: _dividerTheme(),
       elevatedButtonTheme: _elevatedButtonTheme(),
-      // listTileTheme: _listTileTheme(), // works better with defaults
+      navigationRailTheme: _darkNavigationRailTheme(),
       radioTheme: _radioTheme(),
       switchTheme: _switchTheme(),
       tabBarTheme: _darkTabBarTheme(),
@@ -164,6 +176,27 @@ class FlutterThemez {
       selectedColor: _secondaryColor.blackOrWhite,
       selectedTileColor: _secondaryColor,
     );
+  }
+
+  /// Light Navigation rail theme.
+  NavigationRailThemeData _lightNavigationRailTheme() {
+    return ThemeData.light().navigationRailTheme.copyWith(
+          indicatorColor: _primaryColor.withOpacity(0.25),
+        );
+  }
+
+  /// Dark Navigation rail theme.
+  /// This is meant to mimic the [BottomNavigationBar] style.
+  NavigationRailThemeData _darkNavigationRailTheme() {
+    return ThemeData.dark().navigationRailTheme.copyWith(
+          indicatorColor: _secondaryColor.withOpacity(0.25),
+          selectedLabelTextStyle: TextStyle(
+            color: _secondaryColor,
+          ),
+          selectedIconTheme: IconThemeData(
+            color: _secondaryColor,
+          ),
+        );
   }
 
   /// Radio theme.
