@@ -1,4 +1,6 @@
-# Flutter Theme
+# Flutter Themez
+
+![pub package](https://img.shields.io/pub/v/flutter_themez)
 
 ## Features
 

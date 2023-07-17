@@ -2,12 +2,7 @@ part of flutter_themez;
 
 extension _ColorExtension on Color {
   Brightness get brightness {
-    final double relativeLuminance = computeLuminance();
-    const double threshold = 0.45;
-    if ((relativeLuminance + 0.05) * (relativeLuminance + 0.05) > threshold) {
-      return Brightness.light;
-    }
-    return Brightness.dark;
+    return ThemeData.estimateBrightnessForColor(this);
   }
 
   Color get blackOrWhite {

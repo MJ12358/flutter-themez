@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.2.1
+
+- Use `ThemeData.estimateBrightnessForColor` method instead when getting `ColorExtension.brightness`.
+
 ## 1.2.0
 
 - Add NavigationRailTheme.
