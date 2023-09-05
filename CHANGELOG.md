@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 1.2.2
+
+- Update lints.
+
 ## 1.2.1
 
 - Use `ThemeData.estimateBrightnessForColor` method instead when getting `ColorExtension.brightness`.
