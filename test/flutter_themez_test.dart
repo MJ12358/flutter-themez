@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_themez/flutter_themez.dart';
 
 void main() {
   test('constructor', () {
-    const int primaryColor = 0xFF000000;
-    const int secondaryColor = 0xFF999999;
+    const Color primaryColor = Color(0xFF000000);
+    const Color secondaryColor = Color(0xFF999999);
     const String fontFamily = 'Font Family';
 
     final FlutterThemez theme = FlutterThemez(
@@ -13,8 +14,8 @@ void main() {
       fontFamily: fontFamily,
     );
 
-    expect(theme.primaryColor.value, primaryColor);
-    expect(theme.secondaryColor.value, secondaryColor);
+    expect(theme.primaryColor, primaryColor);
+    expect(theme.secondaryColor, secondaryColor);
     expect(theme.fontFamily, fontFamily);
   });
 }

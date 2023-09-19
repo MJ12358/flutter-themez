@@ -11,8 +11,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final FlutterThemez theme = FlutterThemez(
-      primaryColor: 0xFF000000,
-      secondaryColor: 0xFF999999,
+      primaryColor: const Color(0xFF000000),
+      secondaryColor: const Color(0xFF999999),
     );
 
     return MaterialApp(

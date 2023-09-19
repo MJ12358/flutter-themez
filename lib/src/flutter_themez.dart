@@ -4,66 +4,117 @@ part of flutter_themez;
 /// The entry point for [FlutterThemez].
 /// {@endtemplate}
 class FlutterThemez {
+  static FlutterThemez? _instance;
+
+  FlutterThemez._({
+    required this.primaryColor,
+    required this.secondaryColor,
+    required this.fontFamily,
+    required this.appBarTheme,
+    required this.bottomAppBarTheme,
+    required this.checkboxTheme,
+    required this.chipTheme,
+    required this.dividerTheme,
+    required this.elevatedButtonTheme,
+    required this.iconTheme,
+    required this.listTileTheme,
+    required this.navigationRailTheme,
+    required this.radioTheme,
+    required this.switchTheme,
+    required this.tabBarTheme,
+    required this.textTheme,
+  });
+
   /// {@macro flutter_themez}
+  // ignore: sort_unnamed_constructors_first
   factory FlutterThemez({
-    int? primaryColor,
-    int? secondaryColor,
+    Color? primaryColor,
+    Color? secondaryColor,
     String? fontFamily,
+    AppBarTheme? appBarTheme,
+    BottomAppBarTheme? bottomAppBarTheme,
+    CheckboxThemeData? checkboxTheme,
+    ChipThemeData? chipTheme,
+    DividerThemeData? dividerTheme,
+    ElevatedButtonThemeData? elevatedButtonTheme,
+    IconThemeData? iconTheme,
+    ListTileThemeData? listTileTheme,
+    NavigationRailThemeData? navigationRailTheme,
+    RadioThemeData? radioTheme,
+    SwitchThemeData? switchTheme,
+    TabBarTheme? tabBarTheme,
+    TextTheme? textTheme,
   }) {
-    if (primaryColor != null) {
-      _singleton._primaryColor = Color(primaryColor);
-    }
-    if (secondaryColor != null) {
-      _singleton._secondaryColor = Color(secondaryColor);
-    }
-    if (fontFamily != null) {
-      _singleton._fontFamily = fontFamily;
-    }
-    return _singleton;
+    final Color _primaryColor = primaryColor ?? Colors.blue;
+    final Color _secondaryColor = secondaryColor ?? Colors.orange;
+    final String _fontFamily = fontFamily ?? 'Primary';
+
+    return _instance ??= FlutterThemez._(
+      primaryColor: _primaryColor,
+      secondaryColor: _secondaryColor,
+      fontFamily: _fontFamily,
+      appBarTheme: appBarTheme ?? _defaultAppBarTheme(_primaryColor),
+      bottomAppBarTheme:
+          bottomAppBarTheme ?? _defaultBottomAppBarTheme(_secondaryColor),
+      checkboxTheme: checkboxTheme ?? _defaultCheckboxTheme(_primaryColor),
+      chipTheme: chipTheme ?? _defaultChipTheme(_primaryColor),
+      dividerTheme: dividerTheme ?? _defaultDividerTheme(),
+      elevatedButtonTheme: elevatedButtonTheme ??
+          _defaultElevatedButtonTheme(_primaryColor, _fontFamily),
+      iconTheme: iconTheme ?? _defaultIconTheme(_primaryColor),
+      listTileTheme: listTileTheme ?? _defaultListTileTheme(_secondaryColor),
+      navigationRailTheme: navigationRailTheme,
+      radioTheme: radioTheme ?? _defaultRadioTheme(_primaryColor),
+      switchTheme: switchTheme ?? _defaultSwitchTheme(_primaryColor),
+      tabBarTheme: tabBarTheme,
+      textTheme: textTheme,
+    );
   }
 
-  FlutterThemez._();
-  static final FlutterThemez _singleton = FlutterThemez._();
-
-  Color _primaryColor = Colors.blue;
-  Color _secondaryColor = Colors.orange;
-  String _fontFamily = 'Primary';
-
-  /// The primary color of this theme.
-  Color get primaryColor => _primaryColor;
-
-  /// The secondary color of this theme.
-  Color get secondaryColor => _secondaryColor;
-
-  /// The font family of this theme.
-  String get fontFamily => _fontFamily;
+  final Color primaryColor;
+  final Color secondaryColor;
+  final String fontFamily;
+  final AppBarTheme appBarTheme;
+  final BottomAppBarTheme bottomAppBarTheme;
+  final CheckboxThemeData checkboxTheme;
+  final ChipThemeData chipTheme;
+  final DividerThemeData dividerTheme;
+  final ElevatedButtonThemeData elevatedButtonTheme;
+  final IconThemeData iconTheme;
+  final ListTileThemeData listTileTheme;
+  final NavigationRailThemeData? navigationRailTheme;
+  final RadioThemeData radioTheme;
+  final SwitchThemeData switchTheme;
+  final TabBarTheme? tabBarTheme;
+  final TextTheme? textTheme;
 
   /// {@macro flutter_themez}
   ///
   /// Use this to get a [ThemeData.light] theme.
   ThemeData light() {
     return ThemeData.light().copyWith(
-      appBarTheme: _appBarTheme(),
-      bottomAppBarTheme: _bottomAppBarTheme(),
-      checkboxTheme: _checkboxTheme(),
-      chipTheme: _chipTheme(),
+      appBarTheme: appBarTheme,
+      bottomAppBarTheme: bottomAppBarTheme,
+      checkboxTheme: checkboxTheme,
+      chipTheme: chipTheme,
       colorScheme: const ColorScheme.light().copyWith(
-        primary: _primaryColor,
-        primaryContainer: _primaryColor,
-        secondary: _secondaryColor,
-        onSecondary: _secondaryColor.blackOrWhite,
+        primary: primaryColor,
+        primaryContainer: primaryColor,
+        secondary: secondaryColor,
+        onSecondary: secondaryColor.blackOrWhite,
       ),
-      dividerTheme: _dividerTheme(),
-      elevatedButtonTheme: _elevatedButtonTheme(),
-      iconTheme: _iconTheme(),
-      listTileTheme: _listTileTheme(),
-      navigationRailTheme: _lightNavigationRailTheme(),
-      primaryColorLight: _primaryColor.lighten(),
-      primaryColorDark: _primaryColor.darken(),
-      radioTheme: _radioTheme(),
-      switchTheme: _switchTheme(),
-      tabBarTheme: _lightTabBarTheme(),
-      textTheme: _lightTextTheme(),
+      dividerTheme: dividerTheme,
+      elevatedButtonTheme: elevatedButtonTheme,
+      iconTheme: iconTheme,
+      listTileTheme: listTileTheme,
+      navigationRailTheme:
+          navigationRailTheme ?? _defaultNavigationRailThemeLight,
+      primaryColorLight: primaryColor.lighten(),
+      primaryColorDark: primaryColor.darken(),
+      radioTheme: radioTheme,
+      switchTheme: switchTheme,
+      tabBarTheme: tabBarTheme ?? _defaultTabBarThemeLight,
+      textTheme: textTheme ?? _defaultTextThemeLight,
     );
   }
 
@@ -72,48 +123,49 @@ class FlutterThemez {
   /// Use this to get a [ThemeData.dark] theme.
   ThemeData dark() {
     return ThemeData.dark().copyWith(
-      bottomAppBarTheme: _bottomAppBarTheme(),
-      checkboxTheme: _checkboxTheme(),
-      chipTheme: _chipTheme(),
+      bottomAppBarTheme: bottomAppBarTheme,
+      checkboxTheme: checkboxTheme,
+      chipTheme: chipTheme,
       colorScheme: const ColorScheme.dark().copyWith(
-        primary: _primaryColor,
-        secondary: _secondaryColor,
-        onSecondary: _secondaryColor.blackOrWhite,
+        primary: primaryColor,
+        secondary: secondaryColor,
+        onSecondary: secondaryColor.blackOrWhite,
       ),
-      dividerTheme: _dividerTheme(),
-      elevatedButtonTheme: _elevatedButtonTheme(),
-      navigationRailTheme: _darkNavigationRailTheme(),
-      radioTheme: _radioTheme(),
-      switchTheme: _switchTheme(),
-      tabBarTheme: _darkTabBarTheme(),
-      textTheme: _darkTextTheme(),
+      dividerTheme: dividerTheme,
+      elevatedButtonTheme: elevatedButtonTheme,
+      navigationRailTheme:
+          navigationRailTheme ?? _defaultNavigationRailThemeDark,
+      radioTheme: radioTheme,
+      switchTheme: switchTheme,
+      tabBarTheme: tabBarTheme ?? _defaultTabBarThemeDark,
+      textTheme: textTheme ?? _defaultTextThemeDark,
     );
   }
 
   /// AppBar theme.
-  AppBarTheme _appBarTheme() {
+  static AppBarTheme _defaultAppBarTheme(Color primaryColor) {
     return const AppBarTheme().copyWith(
       iconTheme: const IconThemeData().copyWith(
-        color: _primaryColor.blackOrWhite,
+        color: primaryColor.blackOrWhite,
       ),
-      foregroundColor: _primaryColor.blackOrWhite,
+      foregroundColor: primaryColor.blackOrWhite,
     );
   }
 
   /// Bottom appBar theme.
-  BottomAppBarTheme _bottomAppBarTheme() {
+  static BottomAppBarTheme _defaultBottomAppBarTheme(Color secondaryColor) {
     return const BottomAppBarTheme().copyWith(
-      color: _secondaryColor,
+      color: secondaryColor,
     );
   }
 
   /// Checkbox theme.
-  CheckboxThemeData _checkboxTheme() {
+  static CheckboxThemeData _defaultCheckboxTheme(Color primaryColor) {
     return const CheckboxThemeData().copyWith(
       checkColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return _primaryColor.blackOrWhite;
+            return primaryColor.blackOrWhite;
           }
           return null;
         },
@@ -121,7 +173,7 @@ class FlutterThemez {
       fillColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return _primaryColor;
+            return primaryColor;
           }
           return null;
         },
@@ -130,17 +182,17 @@ class FlutterThemez {
   }
 
   /// Chip theme.
-  ChipThemeData _chipTheme() {
+  static ChipThemeData _defaultChipTheme(Color primaryColor) {
     return const ChipThemeData().copyWith(
-      backgroundColor: _primaryColor,
+      backgroundColor: primaryColor,
       labelStyle: const TextStyle().copyWith(
-        color: _primaryColor.blackOrWhite,
+        color: primaryColor.blackOrWhite,
       ),
     );
   }
 
   /// Divider theme.
-  DividerThemeData _dividerTheme() {
+  static DividerThemeData _defaultDividerTheme() {
     return const DividerThemeData().copyWith(
       space: 2.0,
       thickness: 1.0,
@@ -148,64 +200,67 @@ class FlutterThemez {
   }
 
   /// Elevated button theme.
-  ElevatedButtonThemeData _elevatedButtonTheme() {
+  static ElevatedButtonThemeData _defaultElevatedButtonTheme(
+    Color primaryColor,
+    String fontFamily,
+  ) {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: _primaryColor.blackOrWhite,
+        foregroundColor: primaryColor.blackOrWhite,
         shape: const RoundedRectangleBorder(),
         textStyle: const TextStyle().copyWith(
-          color: _primaryColor.blackOrWhite,
+          color: primaryColor.blackOrWhite,
           fontWeight: FontWeight.bold,
           letterSpacing: 1.25,
-          fontFamily: _fontFamily,
+          fontFamily: fontFamily,
         ),
       ),
     );
   }
 
   /// Icon theme.
-  IconThemeData _iconTheme() {
+  static IconThemeData _defaultIconTheme(Color primaryColor) {
     return const IconThemeData().copyWith(
-      color: _primaryColor.blackOrWhite,
+      color: primaryColor.blackOrWhite,
     );
   }
 
   /// List tile theme.
-  ListTileThemeData _listTileTheme() {
+  static ListTileThemeData _defaultListTileTheme(Color secondaryColor) {
     return const ListTileThemeData().copyWith(
-      selectedColor: _secondaryColor.blackOrWhite,
-      selectedTileColor: _secondaryColor,
+      selectedColor: secondaryColor.blackOrWhite,
+      selectedTileColor: secondaryColor,
     );
   }
 
   /// Light Navigation rail theme.
-  NavigationRailThemeData _lightNavigationRailTheme() {
+  NavigationRailThemeData get _defaultNavigationRailThemeLight {
     return ThemeData.light().navigationRailTheme.copyWith(
-          indicatorColor: _primaryColor.withOpacity(0.25),
+          indicatorColor: primaryColor.withOpacity(0.25),
         );
   }
 
   /// Dark Navigation rail theme.
   /// This is meant to mimic the [BottomNavigationBar] style.
-  NavigationRailThemeData _darkNavigationRailTheme() {
+  NavigationRailThemeData get _defaultNavigationRailThemeDark {
     return ThemeData.dark().navigationRailTheme.copyWith(
-          indicatorColor: _secondaryColor.withOpacity(0.25),
+          indicatorColor: secondaryColor.withOpacity(0.25),
           selectedLabelTextStyle: TextStyle(
-            color: _secondaryColor,
+            color: secondaryColor,
           ),
           selectedIconTheme: IconThemeData(
-            color: _secondaryColor,
+            color: secondaryColor,
           ),
         );
   }
 
   /// Radio theme.
-  RadioThemeData _radioTheme() {
+  static RadioThemeData _defaultRadioTheme(Color primaryColor) {
     return const RadioThemeData().copyWith(
       fillColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return _primaryColor;
+            return primaryColor;
           }
           return null;
         },
@@ -214,12 +269,12 @@ class FlutterThemez {
   }
 
   /// Switch theme.
-  SwitchThemeData _switchTheme() {
+  static SwitchThemeData _defaultSwitchTheme(Color primaryColor) {
     return const SwitchThemeData().copyWith(
       trackColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return _primaryColor.withOpacity(0.5);
+            return primaryColor.withOpacity(0.5);
           }
           return null;
         },
@@ -227,7 +282,7 @@ class FlutterThemez {
       thumbColor: MaterialStateProperty.resolveWith(
         (Set<MaterialState> states) {
           if (states.contains(MaterialState.selected)) {
-            return _primaryColor;
+            return primaryColor;
           }
           return null;
         },
@@ -236,12 +291,12 @@ class FlutterThemez {
   }
 
   /// Light tab bar theme.
-  TabBarTheme _lightTabBarTheme() {
+  TabBarTheme get _defaultTabBarThemeLight {
     return TabBarTheme(
-      labelColor: _primaryColor.blackOrWhite,
+      labelColor: primaryColor.blackOrWhite,
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
-          color: _primaryColor.blackOrWhite,
+          color: primaryColor.blackOrWhite,
           width: 2.0,
         ),
       ),
@@ -249,11 +304,11 @@ class FlutterThemez {
   }
 
   /// Dark tab bar theme.
-  TabBarTheme _darkTabBarTheme() {
+  TabBarTheme get _defaultTabBarThemeDark {
     return TabBarTheme(
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
-          color: _primaryColor,
+          color: primaryColor,
           width: 2.0,
         ),
       ),
@@ -261,16 +316,16 @@ class FlutterThemez {
   }
 
   /// Light text theme.
-  TextTheme _lightTextTheme() {
+  TextTheme get _defaultTextThemeLight {
     return ThemeData.light().textTheme.apply(
-          fontFamily: _fontFamily,
+          fontFamily: fontFamily,
         );
   }
 
   /// Dark text theme.
-  TextTheme _darkTextTheme() {
+  TextTheme get _defaultTextThemeDark {
     return ThemeData.dark().textTheme.apply(
-          fontFamily: _fontFamily,
+          fontFamily: fontFamily,
         );
   }
 }

@@ -1,5 +1,12 @@
 # Flutter Themez
 
+## 2.0.0
+
+- **BREAKING**:
+  - Change `primary`/`secondary` colors to `dart:ui` color.
+- Other:
+  - Add extra params to the constructor.
+
 ## 1.2.2
 
 - Update lints.

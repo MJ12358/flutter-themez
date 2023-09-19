@@ -1,7 +1,7 @@
 name: flutter_themez
 description: A simple wrapper for Flutter's ThemeData. Including "light" and "dark".
-version: 1.2.2
-repository: https://github.com/mj12358/flutter-theme
+version: 2.0.0
+repository: https://github.com/mj12358/flutter-themez
 funding:
   - https://www.buymeacoffee.com/mj12358
 topics:
@@ -17,6 +17,6 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  dart_lintz: ^1.2.0
+  dart_lintz: ^1.2.1
   flutter_test:
     sdk: flutter
