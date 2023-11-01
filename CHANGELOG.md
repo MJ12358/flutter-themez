@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 2.0.1
+
+- Allow reconstruction of themez.
+
 ## 2.0.0
 
 - **BREAKING**:

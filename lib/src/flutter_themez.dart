@@ -4,8 +4,6 @@ part of flutter_themez;
 /// The entry point for [FlutterThemez].
 /// {@endtemplate}
 class FlutterThemez {
-  static FlutterThemez? _instance;
-
   FlutterThemez._({
     required this.primaryColor,
     required this.secondaryColor,
@@ -49,7 +47,7 @@ class FlutterThemez {
     final Color _secondaryColor = secondaryColor ?? Colors.orange;
     final String _fontFamily = fontFamily ?? 'Primary';
 
-    return _instance ??= FlutterThemez._(
+    return FlutterThemez._(
       primaryColor: _primaryColor,
       secondaryColor: _secondaryColor,
       fontFamily: _fontFamily,
