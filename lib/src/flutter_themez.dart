@@ -90,7 +90,7 @@ class FlutterThemez {
   ///
   /// Use this to get a [ThemeData.light] theme.
   ThemeData light() {
-    return ThemeData.light().copyWith(
+    return ThemeData.light(useMaterial3: false).copyWith(
       appBarTheme: appBarTheme,
       bottomAppBarTheme: bottomAppBarTheme,
       checkboxTheme: checkboxTheme,
@@ -120,7 +120,7 @@ class FlutterThemez {
   ///
   /// Use this to get a [ThemeData.dark] theme.
   ThemeData dark() {
-    return ThemeData.dark().copyWith(
+    return ThemeData.dark(useMaterial3: false).copyWith(
       bottomAppBarTheme: bottomAppBarTheme,
       checkboxTheme: checkboxTheme,
       chipTheme: chipTheme,
