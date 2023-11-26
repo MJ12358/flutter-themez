@@ -4,6 +4,7 @@ part of flutter_themez;
 /// The entry point for [FlutterThemez].
 /// {@endtemplate}
 class FlutterThemez {
+  /// {@macro flutter_themez}
   FlutterThemez._({
     required this.primaryColor,
     required this.secondaryColor,
@@ -69,21 +70,52 @@ class FlutterThemez {
     );
   }
 
+  /// The primary color for this theme.
   final Color primaryColor;
+
+  /// The secondary color for the theme.
   final Color secondaryColor;
+
+  /// The font family for this theme.
   final String fontFamily;
+
+  /// A theme for customizing [AppBar]s.
   final AppBarTheme appBarTheme;
+
+  /// A theme for customizing [BottomAppBar]s.
   final BottomAppBarTheme bottomAppBarTheme;
+
+  /// A theme for customizing [Checkbox]s.
   final CheckboxThemeData checkboxTheme;
+
+  /// A theme for customizing [Chip]s.
   final ChipThemeData chipTheme;
+
+  /// A theme for customizing [Divider]s.
   final DividerThemeData dividerTheme;
+
+  /// A theme for customizing [ElevatedButton]s.
   final ElevatedButtonThemeData elevatedButtonTheme;
+
+  /// A theme for customizing [Icon]s.
   final IconThemeData iconTheme;
+
+  /// A theme for customizing [ListTile]s.
   final ListTileThemeData listTileTheme;
+
+  /// A theme for customizing [NavigationRail]s.
   final NavigationRailThemeData? navigationRailTheme;
+
+  /// A theme for customizing [Radio]s.
   final RadioThemeData radioTheme;
+
+  /// A theme for customizing [Switch]s.
   final SwitchThemeData switchTheme;
+
+  /// A theme for customizing [TabBar]s.
   final TabBarTheme? tabBarTheme;
+
+  /// A theme for customizing [Text]s.
   final TextTheme? textTheme;
 
   /// {@macro flutter_themez}

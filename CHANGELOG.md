@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 2.0.3
+
+- Provide more documentation.
+
 ## 2.0.2
 
 - Fix `useMaterial3` due to latest Flutter update (3.16). ie: [Not Ready](https://i.imgflip.com/38gn2a.jpg)
