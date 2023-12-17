@@ -141,6 +141,7 @@ class FlutterThemez {
       ),
       dividerTheme: dividerTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      floatingActionButtonTheme: floatingActionButtonTheme,
       iconTheme: iconTheme,
       listTileTheme: listTileTheme,
       navigationRailTheme:
@@ -169,6 +170,7 @@ class FlutterThemez {
       ),
       dividerTheme: dividerTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      floatingActionButtonTheme: floatingActionButtonTheme,
       navigationRailTheme:
           navigationRailTheme ?? _defaultNavigationRailThemeDark,
       radioTheme: radioTheme,
