@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 2.0.4
+
+- Provide additional parameter.
+
 ## 2.0.3
 
 - Provide more documentation.

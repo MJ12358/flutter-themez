@@ -15,6 +15,7 @@ class FlutterThemez {
     required this.chipTheme,
     required this.dividerTheme,
     required this.elevatedButtonTheme,
+    required this.floatingActionButtonTheme,
     required this.iconTheme,
     required this.listTileTheme,
     required this.navigationRailTheme,
@@ -36,6 +37,7 @@ class FlutterThemez {
     ChipThemeData? chipTheme,
     DividerThemeData? dividerTheme,
     ElevatedButtonThemeData? elevatedButtonTheme,
+    FloatingActionButtonThemeData? floatingActionButtonTheme,
     IconThemeData? iconTheme,
     ListTileThemeData? listTileTheme,
     NavigationRailThemeData? navigationRailTheme,
@@ -60,6 +62,7 @@ class FlutterThemez {
       dividerTheme: dividerTheme ?? _defaultDividerTheme(),
       elevatedButtonTheme: elevatedButtonTheme ??
           _defaultElevatedButtonTheme(_primaryColor, _fontFamily),
+      floatingActionButtonTheme: floatingActionButtonTheme,
       iconTheme: iconTheme ?? _defaultIconTheme(_primaryColor),
       listTileTheme: listTileTheme ?? _defaultListTileTheme(_secondaryColor),
       navigationRailTheme: navigationRailTheme,
@@ -96,6 +99,9 @@ class FlutterThemez {
 
   /// A theme for customizing [ElevatedButton]s.
   final ElevatedButtonThemeData elevatedButtonTheme;
+
+  /// A theme for customizing [FloatingActionButton]s.
+  final FloatingActionButtonThemeData? floatingActionButtonTheme;
 
   /// A theme for customizing [Icon]s.
   final IconThemeData iconTheme;
