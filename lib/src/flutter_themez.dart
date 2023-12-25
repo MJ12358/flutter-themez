@@ -332,6 +332,9 @@ class FlutterThemez {
   TabBarTheme get _defaultTabBarThemeLight {
     return TabBarTheme(
       labelColor: primaryColor.blackOrWhite,
+      labelStyle: const TabBarTheme().labelStyle!.copyWith(
+            fontFamily: fontFamily,
+          ),
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
           color: primaryColor.blackOrWhite,
@@ -344,6 +347,9 @@ class FlutterThemez {
   /// Dark tab bar theme.
   TabBarTheme get _defaultTabBarThemeDark {
     return TabBarTheme(
+      labelStyle: const TabBarTheme().labelStyle!.copyWith(
+            fontFamily: fontFamily,
+          ),
       indicator: UnderlineTabIndicator(
         borderSide: BorderSide(
           color: primaryColor,

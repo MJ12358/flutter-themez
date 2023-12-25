@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## 2.0.6
+
+- Fix TabBar font.
+
 ## 2.0.5
 
 - Provide additional parameter.
