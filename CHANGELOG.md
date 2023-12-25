@@ -1,6 +1,6 @@
 # Flutter Themez
 
-## 2.0.6
+## 2.0.9
 
 - Fix TabBar font.
 
