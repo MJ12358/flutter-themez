@@ -1,5 +1,12 @@
 # Flutter Themez
 
+## 3.0.0
+
+- Update Flutter to latest version.
+- Replace `withOpacity` with `withValues`.
+- Replace `TabBarTheme` with `TabBarThemeData`.
+- Replace `MaterialStateProperty` with `WidgetStateProperty`.
+
 ## 2.0.9
 
 - Fix TabBar font.

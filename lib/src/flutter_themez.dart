@@ -43,7 +43,7 @@ class FlutterThemez {
     NavigationRailThemeData? navigationRailTheme,
     RadioThemeData? radioTheme,
     SwitchThemeData? switchTheme,
-    TabBarTheme? tabBarTheme,
+    TabBarThemeData? tabBarTheme,
     TextTheme? textTheme,
   }) {
     final Color _primaryColor = primaryColor ?? Colors.blue;
@@ -119,7 +119,7 @@ class FlutterThemez {
   final SwitchThemeData switchTheme;
 
   /// A theme for customizing [TabBar]s.
-  final TabBarTheme? tabBarTheme;
+  final TabBarThemeData? tabBarTheme;
 
   /// A theme for customizing [Text]s.
   final TextTheme? textTheme;
@@ -200,17 +200,17 @@ class FlutterThemez {
   /// Checkbox theme.
   static CheckboxThemeData _defaultCheckboxTheme(Color primaryColor) {
     return const CheckboxThemeData().copyWith(
-      checkColor: MaterialStateProperty.resolveWith(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+      checkColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return primaryColor.blackOrWhite;
           }
           return null;
         },
       ),
-      fillColor: MaterialStateProperty.resolveWith(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+      fillColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return primaryColor;
           }
           return null;
@@ -274,7 +274,7 @@ class FlutterThemez {
   /// Light Navigation rail theme.
   NavigationRailThemeData get _defaultNavigationRailThemeLight {
     return ThemeData.light().navigationRailTheme.copyWith(
-          indicatorColor: primaryColor.withOpacity(0.25),
+          indicatorColor: primaryColor.withValues(alpha: 0.25),
         );
   }
 
@@ -282,7 +282,7 @@ class FlutterThemez {
   /// This is meant to mimic the [BottomNavigationBar] style.
   NavigationRailThemeData get _defaultNavigationRailThemeDark {
     return ThemeData.dark().navigationRailTheme.copyWith(
-          indicatorColor: secondaryColor.withOpacity(0.25),
+          indicatorColor: secondaryColor.withValues(alpha: 0.25),
           selectedLabelTextStyle: TextStyle(
             color: secondaryColor,
           ),
@@ -295,9 +295,9 @@ class FlutterThemez {
   /// Radio theme.
   static RadioThemeData _defaultRadioTheme(Color primaryColor) {
     return const RadioThemeData().copyWith(
-      fillColor: MaterialStateProperty.resolveWith(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+      fillColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return primaryColor;
           }
           return null;
@@ -309,17 +309,17 @@ class FlutterThemez {
   /// Switch theme.
   static SwitchThemeData _defaultSwitchTheme(Color primaryColor) {
     return const SwitchThemeData().copyWith(
-      trackColor: MaterialStateProperty.resolveWith(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
-            return primaryColor.withOpacity(0.5);
+      trackColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return primaryColor.withValues(alpha: 0.5);
           }
           return null;
         },
       ),
-      thumbColor: MaterialStateProperty.resolveWith(
-        (Set<MaterialState> states) {
-          if (states.contains(MaterialState.selected)) {
+      thumbColor: WidgetStateProperty.resolveWith(
+        (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
             return primaryColor;
           }
           return null;
@@ -329,8 +329,8 @@ class FlutterThemez {
   }
 
   /// Light tab bar theme.
-  TabBarTheme get _defaultTabBarThemeLight {
-    return TabBarTheme(
+  TabBarThemeData get _defaultTabBarThemeLight {
+    return TabBarThemeData(
       labelColor: primaryColor.blackOrWhite,
       labelStyle: TextStyle(
         fontFamily: fontFamily,
@@ -348,8 +348,8 @@ class FlutterThemez {
   }
 
   /// Dark tab bar theme.
-  TabBarTheme get _defaultTabBarThemeDark {
-    return TabBarTheme(
+  TabBarThemeData get _defaultTabBarThemeDark {
+    return TabBarThemeData(
       labelStyle: TextStyle(
         fontFamily: fontFamily,
       ),
