@@ -23,6 +23,7 @@ class FlutterThemez {
     required this.switchTheme,
     required this.tabBarTheme,
     required this.textTheme,
+    required this.useMaterial3,
   });
 
   /// {@macro flutter_themez}
@@ -45,6 +46,7 @@ class FlutterThemez {
     SwitchThemeData? switchTheme,
     TabBarThemeData? tabBarTheme,
     TextTheme? textTheme,
+    bool? useMaterial3,
   }) {
     final Color _primaryColor = primaryColor ?? Colors.blue;
     final Color _secondaryColor = secondaryColor ?? Colors.orange;
@@ -54,7 +56,7 @@ class FlutterThemez {
       primaryColor: _primaryColor,
       secondaryColor: _secondaryColor,
       fontFamily: _fontFamily,
-      appBarTheme: appBarTheme ?? _defaultAppBarTheme(_primaryColor),
+      appBarTheme: appBarTheme,
       bottomAppBarTheme:
           bottomAppBarTheme ?? _defaultBottomAppBarTheme(_secondaryColor),
       checkboxTheme: checkboxTheme ?? _defaultCheckboxTheme(_primaryColor),
@@ -70,6 +72,7 @@ class FlutterThemez {
       switchTheme: switchTheme ?? _defaultSwitchTheme(_primaryColor),
       tabBarTheme: tabBarTheme,
       textTheme: textTheme,
+      useMaterial3: useMaterial3 ?? false,
     );
   }
 
@@ -83,7 +86,7 @@ class FlutterThemez {
   final String fontFamily;
 
   /// A theme for customizing [AppBar]s.
-  final AppBarTheme appBarTheme;
+  final AppBarTheme? appBarTheme;
 
   /// A theme for customizing [BottomAppBar]s.
   final BottomAppBarTheme bottomAppBarTheme;
@@ -124,12 +127,15 @@ class FlutterThemez {
   /// A theme for customizing [Text]s.
   final TextTheme? textTheme;
 
+  /// Whether to use Material Design 3
+  final bool useMaterial3;
+
   /// {@macro flutter_themez}
   ///
   /// Use this to get a [ThemeData.light] theme.
   ThemeData light() {
-    return ThemeData.light(useMaterial3: false).copyWith(
-      appBarTheme: appBarTheme,
+    return ThemeData.light(useMaterial3: useMaterial3).copyWith(
+      appBarTheme: appBarTheme ?? _defaultAppBarThemeLight(primaryColor),
       bottomAppBarTheme: bottomAppBarTheme,
       checkboxTheme: checkboxTheme,
       chipTheme: chipTheme,
@@ -159,7 +165,8 @@ class FlutterThemez {
   ///
   /// Use this to get a [ThemeData.dark] theme.
   ThemeData dark() {
-    return ThemeData.dark(useMaterial3: false).copyWith(
+    return ThemeData.dark(useMaterial3: useMaterial3).copyWith(
+      appBarTheme: appBarTheme ?? _defaultAppBarThemeDark(primaryColor),
       bottomAppBarTheme: bottomAppBarTheme,
       checkboxTheme: checkboxTheme,
       chipTheme: chipTheme,
@@ -180,13 +187,27 @@ class FlutterThemez {
     );
   }
 
-  /// AppBar theme.
-  static AppBarTheme _defaultAppBarTheme(Color primaryColor) {
+  /// AppBar light theme.
+  static AppBarTheme _defaultAppBarThemeLight(Color primaryColor) {
     return const AppBarTheme().copyWith(
       iconTheme: const IconThemeData().copyWith(
         color: primaryColor.blackOrWhite,
       ),
+      backgroundColor: primaryColor,
       foregroundColor: primaryColor.blackOrWhite,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+    );
+  }
+
+  /// AppBar dark theme.
+  static AppBarTheme _defaultAppBarThemeDark(Color primaryColor) {
+    return const AppBarTheme().copyWith(
+      iconTheme: const IconThemeData().copyWith(
+        color: primaryColor.blackOrWhite,
+      ),
+      backgroundColor: primaryColor,
+      foregroundColor: primaryColor.blackOrWhite,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
   }
 

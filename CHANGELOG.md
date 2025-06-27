@@ -1,5 +1,10 @@
 # Flutter Themez
 
+## [3.1.0]
+
+- Add `useMaterial3` property to allow users to opt in.
+- Adjust default `appBarTheme` for light/dark.
+
 ## [3.0.0]
 
 - Update Flutter to latest version.
