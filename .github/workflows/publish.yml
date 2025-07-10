@@ -9,7 +9,8 @@ jobs:
   publish:
 
     permissions:
-       id-token: write # Required for authentication using OIDC
+      contents: write # Required to update releases
+      id-token: write # Required for authentication using OIDC
     
     runs-on: ubuntu-latest
 
