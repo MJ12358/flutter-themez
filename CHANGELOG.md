@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## [3.1.1]
+
+- Fix `AppBarTheme` backgroundColor when in dark mode.
+
 ## [3.1.0]
 
 - Add `useMaterial3` property to allow users to opt in.

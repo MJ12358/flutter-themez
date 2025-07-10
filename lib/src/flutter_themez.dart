@@ -205,7 +205,6 @@ class FlutterThemez {
       iconTheme: const IconThemeData().copyWith(
         color: primaryColor.blackOrWhite,
       ),
-      backgroundColor: primaryColor,
       foregroundColor: primaryColor.blackOrWhite,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
     );
