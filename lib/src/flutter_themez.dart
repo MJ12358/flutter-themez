@@ -201,13 +201,7 @@ class FlutterThemez {
 
   /// AppBar dark theme.
   static AppBarTheme _defaultAppBarThemeDark(Color primaryColor) {
-    return const AppBarTheme().copyWith(
-      iconTheme: const IconThemeData().copyWith(
-        color: primaryColor.blackOrWhite,
-      ),
-      foregroundColor: primaryColor.blackOrWhite,
-      systemOverlayStyle: SystemUiOverlayStyle.dark,
-    );
+    return const AppBarTheme();
   }
 
   /// Bottom appBar theme.

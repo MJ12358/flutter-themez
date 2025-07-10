@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## [3.1.2]
+
+- Fix `systemOverlayStyle` when in dark mode.
+
 ## [3.1.1]
 
 - Fix `AppBarTheme` backgroundColor when in dark mode.
