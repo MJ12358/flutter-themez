@@ -20,6 +20,7 @@ class FlutterThemez {
     required this.listTileTheme,
     required this.navigationRailTheme,
     required this.radioTheme,
+    required this.snackBarTheme,
     required this.switchTheme,
     required this.tabBarTheme,
     required this.textTheme,
@@ -43,6 +44,7 @@ class FlutterThemez {
     ListTileThemeData? listTileTheme,
     NavigationRailThemeData? navigationRailTheme,
     RadioThemeData? radioTheme,
+    SnackBarThemeData? snackBarTheme,
     SwitchThemeData? switchTheme,
     TabBarThemeData? tabBarTheme,
     TextTheme? textTheme,
@@ -69,6 +71,7 @@ class FlutterThemez {
       listTileTheme: listTileTheme ?? _defaultListTileTheme(_secondaryColor),
       navigationRailTheme: navigationRailTheme,
       radioTheme: radioTheme ?? _defaultRadioTheme(_primaryColor),
+      snackBarTheme: snackBarTheme ?? _defaultSnackBarTheme(_fontFamily),
       switchTheme: switchTheme ?? _defaultSwitchTheme(_primaryColor),
       tabBarTheme: tabBarTheme,
       textTheme: textTheme,
@@ -118,6 +121,9 @@ class FlutterThemez {
   /// A theme for customizing [Radio]s.
   final RadioThemeData radioTheme;
 
+  /// A theme for customizing [SnackBar]s.
+  final SnackBarThemeData? snackBarTheme;
+
   /// A theme for customizing [Switch]s.
   final SwitchThemeData switchTheme;
 
@@ -155,6 +161,7 @@ class FlutterThemez {
       primaryColorLight: primaryColor.lighten(),
       primaryColorDark: primaryColor.darken(),
       radioTheme: radioTheme,
+      snackBarTheme: _defaultSnackBarTheme(fontFamily),
       switchTheme: switchTheme,
       tabBarTheme: tabBarTheme ?? _defaultTabBarThemeLight,
       textTheme: textTheme ?? _defaultTextThemeLight,
@@ -181,6 +188,7 @@ class FlutterThemez {
       navigationRailTheme:
           navigationRailTheme ?? _defaultNavigationRailThemeDark,
       radioTheme: radioTheme,
+      snackBarTheme: _defaultSnackBarTheme(fontFamily),
       switchTheme: switchTheme,
       tabBarTheme: tabBarTheme ?? _defaultTabBarThemeDark,
       textTheme: textTheme ?? _defaultTextThemeDark,
@@ -320,6 +328,15 @@ class FlutterThemez {
     );
   }
 
+  /// SnackBar theme.
+  static SnackBarThemeData _defaultSnackBarTheme(String fontFamily) {
+    return const SnackBarThemeData().copyWith(
+      contentTextStyle: TextStyle(
+        fontFamily: fontFamily,
+      ),
+    );
+  }
+
   /// Switch theme.
   static SwitchThemeData _defaultSwitchTheme(Color primaryColor) {
     return const SwitchThemeData().copyWith(
@@ -381,14 +398,14 @@ class FlutterThemez {
 
   /// Light text theme.
   TextTheme get _defaultTextThemeLight {
-    return ThemeData.light().textTheme.apply(
+    return ThemeData.light().textTheme.copyWith().apply(
           fontFamily: fontFamily,
         );
   }
 
   /// Dark text theme.
   TextTheme get _defaultTextThemeDark {
-    return ThemeData.dark().textTheme.apply(
+    return ThemeData.dark().textTheme.copyWith().apply(
           fontFamily: fontFamily,
         );
   }

@@ -1,5 +1,10 @@
 # Flutter Themez
 
+## [3.2.0]
+
+- Add `snackBarTheme` parameter.
+- Fix some issues with `textTheme` not setting `fontFamily` correctly.
+
 ## [3.1.2]
 
 - Fix `systemOverlayStyle` when in dark mode.
