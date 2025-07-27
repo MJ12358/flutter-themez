@@ -1,4 +1,4 @@
-name: Publish to pub.dev
+name: Publish
 
 on:
   push:
@@ -36,16 +36,16 @@ jobs:
         with:
           channel: stable
 
-      - name: Get dependencies
+      - name: Get Dependencies
         run: flutter pub get
 
       - name: Analyze
         run: flutter analyze
 
-      - name: Run tests
+      - name: Run Tests
         run: flutter test
         
-      - name: Get pub.dev credentials
+      - name: Get pub.dev Credentials
         uses: flutter-actions/setup-pubdev-credentials@v1
 
       - name: Check Publish Warnings
@@ -54,7 +54,7 @@ jobs:
       - name: Publish Package
         run: flutter pub publish -f
 
-      - name: Create Release in GitHub
+      - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
