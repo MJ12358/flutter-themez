@@ -331,20 +331,19 @@ class FlutterThemez {
   /// Light SnackBar theme.
   SnackBarThemeData get _defaultSnackBarThemeLight {
     return ThemeData.light().snackBarTheme.copyWith(
-          contentTextStyle:
-              const SnackBarThemeData().contentTextStyle?.copyWith(
-                    fontFamily: fontFamily,
-                  ),
+          contentTextStyle: TextStyle(
+            fontFamily: fontFamily,
+          ),
         );
   }
 
   /// Dark SnackBar theme.
   SnackBarThemeData get _defaultSnackBarThemeDark {
     return ThemeData.dark().snackBarTheme.copyWith(
-          contentTextStyle:
-              const SnackBarThemeData().contentTextStyle?.copyWith(
-                    fontFamily: fontFamily,
-                  ),
+          contentTextStyle: TextStyle(
+            fontFamily: fontFamily,
+            color: Colors.black,
+          ),
         );
   }
 
