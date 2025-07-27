@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## [3.2.1]
+
+- Fix `snackBarTheme` light/dark defaults.
+
 ## [3.2.0]
 
 - Add `snackBarTheme` parameter.
