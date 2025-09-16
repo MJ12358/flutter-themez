@@ -34,7 +34,7 @@ class FlutterThemez {
     Color? secondaryColor,
     String? fontFamily,
     AppBarTheme? appBarTheme,
-    BottomAppBarTheme? bottomAppBarTheme,
+    BottomAppBarThemeData? bottomAppBarTheme,
     CheckboxThemeData? checkboxTheme,
     ChipThemeData? chipTheme,
     DividerThemeData? dividerTheme,
@@ -92,7 +92,7 @@ class FlutterThemez {
   final AppBarTheme? appBarTheme;
 
   /// A theme for customizing [BottomAppBar]s.
-  final BottomAppBarTheme bottomAppBarTheme;
+  final BottomAppBarThemeData bottomAppBarTheme;
 
   /// A theme for customizing [Checkbox]s.
   final CheckboxThemeData checkboxTheme;
@@ -213,8 +213,8 @@ class FlutterThemez {
   }
 
   /// Bottom appBar theme.
-  static BottomAppBarTheme _defaultBottomAppBarTheme(Color secondaryColor) {
-    return const BottomAppBarTheme().copyWith(
+  static BottomAppBarThemeData _defaultBottomAppBarTheme(Color secondaryColor) {
+    return const BottomAppBarThemeData().copyWith(
       color: secondaryColor,
     );
   }

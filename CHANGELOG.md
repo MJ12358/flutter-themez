@@ -1,5 +1,10 @@
 # Flutter Themez
 
+## [4.0.0]
+
+- Upgrade Flutter SDK.
+- Use `BottomAppBarThemeData` instead of `BottomAppBarTheme`.
+
 ## [3.2.2]
 
 - Fix an issue with `snackBarTheme` not setting `fontFamily` correctly.
