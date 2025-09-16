@@ -1,6 +1,6 @@
 # Flutter Themez
 
-## [4.0.0]
+## [4.0.1]
 
 - Upgrade Flutter SDK.
 - Use `BottomAppBarThemeData` instead of `BottomAppBarTheme`.
