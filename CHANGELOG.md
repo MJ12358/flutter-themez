@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## [4.0.2]
+
+- Add thumbnail to pub.dev.
+
 ## [4.0.1]
 
 - Upgrade Flutter SDK.
