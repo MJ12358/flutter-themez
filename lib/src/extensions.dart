@@ -1,4 +1,4 @@
-part of flutter_themez;
+part of '../flutter_themez.dart';
 
 extension _ColorExtension on Color {
   Brightness get brightness {

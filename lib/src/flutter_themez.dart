@@ -1,4 +1,4 @@
-part of flutter_themez;
+part of '../flutter_themez.dart';
 
 /// {@template flutter_themez}
 /// The entry point for [FlutterThemez].
