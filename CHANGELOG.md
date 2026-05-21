@@ -1,5 +1,10 @@
 # Flutter Themez
 
+## [4.1.0]
+
+- Refactor constructor to remove need for redirecting factory.
+- Fix some lints.
+
 ## [4.0.3]
 
 - Fix static analysis warning: "part-of directive uses a library name"

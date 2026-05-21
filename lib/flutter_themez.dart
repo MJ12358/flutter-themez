@@ -1,3 +1,6 @@
+/// A simple wrapper for Flutter's ThemeData. Including "light" and "dark".
+library;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

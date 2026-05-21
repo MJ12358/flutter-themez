@@ -5,79 +5,37 @@ part of '../flutter_themez.dart';
 /// {@endtemplate}
 class FlutterThemez {
   /// {@macro flutter_themez}
-  FlutterThemez._({
-    required this.primaryColor,
-    required this.secondaryColor,
-    required this.fontFamily,
-    required this.appBarTheme,
-    required this.bottomAppBarTheme,
-    required this.checkboxTheme,
-    required this.chipTheme,
-    required this.dividerTheme,
-    required this.elevatedButtonTheme,
-    required this.floatingActionButtonTheme,
-    required this.iconTheme,
-    required this.listTileTheme,
-    required this.navigationRailTheme,
-    required this.radioTheme,
-    required this.snackBarTheme,
-    required this.switchTheme,
-    required this.tabBarTheme,
-    required this.textTheme,
-    required this.useMaterial3,
-  });
-
-  /// {@macro flutter_themez}
-  // ignore: sort_unnamed_constructors_first
-  factory FlutterThemez({
-    Color? primaryColor,
-    Color? secondaryColor,
-    String? fontFamily,
-    AppBarTheme? appBarTheme,
+  FlutterThemez({
+    this.primaryColor = Colors.blue,
+    this.secondaryColor = Colors.orange,
+    this.fontFamily = 'Primary',
+    this.appBarTheme,
     BottomAppBarThemeData? bottomAppBarTheme,
     CheckboxThemeData? checkboxTheme,
     ChipThemeData? chipTheme,
     DividerThemeData? dividerTheme,
     ElevatedButtonThemeData? elevatedButtonTheme,
-    FloatingActionButtonThemeData? floatingActionButtonTheme,
+    this.floatingActionButtonTheme,
     IconThemeData? iconTheme,
     ListTileThemeData? listTileTheme,
-    NavigationRailThemeData? navigationRailTheme,
+    this.navigationRailTheme,
     RadioThemeData? radioTheme,
-    SnackBarThemeData? snackBarTheme,
+    this.snackBarTheme,
     SwitchThemeData? switchTheme,
-    TabBarThemeData? tabBarTheme,
-    TextTheme? textTheme,
-    bool? useMaterial3,
-  }) {
-    final Color _primaryColor = primaryColor ?? Colors.blue;
-    final Color _secondaryColor = secondaryColor ?? Colors.orange;
-    final String _fontFamily = fontFamily ?? 'Primary';
-
-    return FlutterThemez._(
-      primaryColor: _primaryColor,
-      secondaryColor: _secondaryColor,
-      fontFamily: _fontFamily,
-      appBarTheme: appBarTheme,
-      bottomAppBarTheme:
-          bottomAppBarTheme ?? _defaultBottomAppBarTheme(_secondaryColor),
-      checkboxTheme: checkboxTheme ?? _defaultCheckboxTheme(_primaryColor),
-      chipTheme: chipTheme ?? _defaultChipTheme(_primaryColor),
-      dividerTheme: dividerTheme ?? _defaultDividerTheme(),
-      elevatedButtonTheme: elevatedButtonTheme ??
-          _defaultElevatedButtonTheme(_primaryColor, _fontFamily),
-      floatingActionButtonTheme: floatingActionButtonTheme,
-      iconTheme: iconTheme ?? _defaultIconTheme(_primaryColor),
-      listTileTheme: listTileTheme ?? _defaultListTileTheme(_secondaryColor),
-      navigationRailTheme: navigationRailTheme,
-      radioTheme: radioTheme ?? _defaultRadioTheme(_primaryColor),
-      snackBarTheme: snackBarTheme,
-      switchTheme: switchTheme ?? _defaultSwitchTheme(_primaryColor),
-      tabBarTheme: tabBarTheme,
-      textTheme: textTheme,
-      useMaterial3: useMaterial3 ?? false,
-    );
-  }
+    this.tabBarTheme,
+    this.textTheme,
+    this.useMaterial3 = false,
+  })  : bottomAppBarTheme =
+            bottomAppBarTheme ?? _defaultBottomAppBarTheme(secondaryColor),
+        checkboxTheme = checkboxTheme ?? _defaultCheckboxTheme(primaryColor),
+        chipTheme = chipTheme ?? _defaultChipTheme(primaryColor),
+        dividerTheme = dividerTheme ?? _defaultDividerTheme(),
+        elevatedButtonTheme = elevatedButtonTheme ??
+            _defaultElevatedButtonTheme(primaryColor, fontFamily),
+        iconTheme = iconTheme ?? _defaultIconTheme(primaryColor),
+        listTileTheme = listTileTheme ?? _defaultListTileTheme(secondaryColor),
+        radioTheme = radioTheme ?? _defaultRadioTheme(primaryColor),
+        switchTheme = switchTheme ?? _defaultSwitchTheme(primaryColor);
 
   /// The primary color for this theme.
   final Color primaryColor;
