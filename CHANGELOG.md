@@ -1,5 +1,10 @@
 # Flutter Themez
 
+## [5.0.0]
+
+- Update Flutter and use standalone UI package.
+- Fix lints.
+
 ## [4.1.0]
 
 - Refactor constructor to remove need for redirecting factory.
