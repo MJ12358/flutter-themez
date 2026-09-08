@@ -18,7 +18,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  material_ui: 1.2.0
+  material_ui: ^1.2.0
 
 dev_dependencies:
   dart_lintz: 2.2.0

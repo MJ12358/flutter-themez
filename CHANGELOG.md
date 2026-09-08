@@ -2,7 +2,7 @@
 
 ## [5.0.0]
 
-- Update Flutter and use standalone UI package.
+- Update Flutter and use standalone UI packages.
 - Fix lints.
 
 ## [4.1.0]
