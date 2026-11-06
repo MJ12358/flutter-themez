@@ -1,5 +1,9 @@
 # Flutter Themez
 
+## [5.0.1]
+
+- Update dependencies.
+
 ## [5.0.0]
 
 - Update Flutter and use standalone UI packages.
